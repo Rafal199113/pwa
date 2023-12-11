@@ -1,0 +1,95 @@
+<html>
+ <head>
+  
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/about.css">
+ </head>
+ <body>
+  <p style="width:100%; background-color:red; color: white; font-size: 20px; text-align: center;">You are offline</p>
+  <div id="menu">
+     <p  class="barcontent"  id="title">SkyQuest</p>
+      <img id="menuicon" onclick="openNav()" src="/pic/menu.svg"></ion-icon>
+
+  </div>
+  <div id="mySidenav" class="sidenav">
+   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
+   <a style="margin-bottom:10%; font-size:80px; margin-left:5%; " >SkyQuest</a>
+   <div style="display:flex;">
+      <img src="/pic/help.svg" style="width:60px; margin-left:10px"/>
+      <a href="/help"  >Help</a>
+   </div>
+   <div style="display:flex;">
+      <img src="/pic/house.svg" style="width:60px; margin-left:10px"/>
+      <a href="/help"  >About</a>
+   </div>
+  </div>
+  <div id="search" style="margin-bottom:5%">
+   <input type="date" id="datepicker"  name="start" value="2024-07-22">
+   <input type="date" id="returndatepicker"  name="return" value="2024-07-22">
+   <select id="air"  class="select">
+      <option value="option">Lot</option>
+      <option value="option">Ryainar</option>
+      <option value="option">Lufthansa</option>
+   </select>
+   <select id="from"  class="select">
+      <option value="option">Warszawa</option>
+      
+   </select>
+   <select id="to" class="select" >
+      <option value="option">Tokio</option>
+      <option value="option">Londyn</option>
+      <option value="option">Rzym</option>
+      
+   </select>
+  </div>
+  
+
+  </div>
+  <div style="width:20%;  margin-left:auto; margin-right:auto; display:flex;">
+      <input type="button" onclick="showPassengers()" style=" max-width:120px; margin-bottom:20px; margin-left:10%; border-width:1px;  border-radius: 10px; border-style:solid; padding:10px; background-color:transparent;font-size: 20px; "  value="1 pasażer"></input>
+      <div style="width:400px; height:0px; margin-top:40px;  position: absolute;" id="passengers">
+         <div id="form" style="visibility: hidden;  border-width:1px;  border-radius: 10px; border-style:solid;">
+            <div class="passengerField">
+               <span class="passengerTitle">Dorośli</span>
+               <input type="button"  class="addbutton" value="-"></input>
+               <input type="number" id="adult"  class="editButtonPassengers" value="adult"></input>
+               <input type="button"  class="addbutton" value="+"></input>
+
+            </div>
+            <div class="passengerField"  id="form">
+               <span class="passengerTitle">Młodzież</span>
+               <input type="button"  class="addbutton" value="-"></input>
+               <input type="number" id="adult"  class="editButtonPassengers" value="teen"></input>
+               <input type="button"  class="addbutton" value="+"></input>
+
+            </div>
+            <div class="passengerField" id="form">
+               <span class="passengerTitle">Dzieci</span>
+               <input type="button"  class="addbutton" value="-"></input>
+               <input type="number" id="adult"  class="editButtonPassengers" value="child"></input>
+               <input type="button"  class="addbutton" value="+"></input>
+
+            </div>
+            <input type="button"  style="margin-left:30px; height:43px;"   class="buy  " id="find" value="Wyszukaj"></input>
+         </div>
+      </div>
+      <input type="button"  style="margin-left:30px; height:43px;" onclick="book()"  class="buy  " id="find" value="Wyszukaj"></input> 
+  </div>
+
+
+ <div class="slider">
+   <img id="slides"/>
+
+   <p class="slideText">Wyszukuj spośród najpopularniejszych lini lotniczych połączenia w najniższych cenach.</p>
+ <p id="time"></p>
+ <div id="container">
+   
+
+ </div>
+ <script src="/js/harmonogram.js"></script>
+ <script src="/js/sidebar.js"></script>
+ <script src="/js/slider.js"></script>
+ <script src="/js/offline.js"></script>
+ </body>
+</html>

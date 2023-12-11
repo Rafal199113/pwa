@@ -1,0 +1,107 @@
+extends layout 
+block content
+  header 
+ 
+ 
+  main
+    
+   
+    div(id="container")
+            div(id="map")
+            div(class="divTime") 
+              h1(class="promocja")="Promocja"
+              h2(class="promocja")="Loty do wybranych miast przecenione do -30%"
+              p(id="time")
+            div(id="info")
+              h1="Podsumowanie"
+              div(class="selectedTicket")
+                p(class="name")= "Wybrana relacja:"
+                p(class="data")= "Z "+loty.start_source+" do "+loty.target
+              div(class="selectedTicket")
+                p(class="name")= "Klasa:"
+                p(class="data")= bilet
+              div(class="selectedTicket")
+                p(class="name")= "Bilety dla dorosłych:"
+                p(class="data")= adult
+               
+                p(class="data")= adultPrice + " zł"
+             
+              div(class="selectedTicket")
+                p(class="name")= "Bilety dla młodzieży:"
+                p(class="data")= teen
+                -var teenPrice=teen-(teen*0.10)
+                p(class="data")= teenPrice + " zł"
+              div(class="selectedTicket")
+                p(class="name")= "Bilety dla niemowląt:"
+                p(class="data")= baby
+                -var  babyPrice=baby*cena*0;
+                p(class="data")= babyPrice.toFixed(2) + " zł"
+              div(class="selectedTicket")
+                p(class="name")= "Cena biletów w jedną strone "
+                p(class="data")= cena +" zł"
+                p(class="data")= "Cena biletów powrotnego -20% "
+              input(type="button" onclick="result("+"{lot:"+JSON.stringify(loty)+",bilet:'"+bilet+"'})" class="buy" value="Rezerwuj")
+            div(id="flightes")
+              
+              
+              
+              each val in loty.createBackFlyies
+                
+                  div(class="backflightes")
+                    div(class="field")
+                      img(src="/pic/end.png")
+                      p(class="selectedDate")="Powrót "+val.data
+                    div(class="oneFly")
+                     div(class="field")
+                       p(class="name")= "Relacja"
+                       p(class="data")= val.start_source
+                       img(src="/pic/fly_track.png" class="flyTrack")
+                       p(class="data")= val.target
+                     div(class="field")
+                       p(class="name")= "Godziny"
+                       p(class="data")= val.start_time
+                       p(class="data")= val.fly_time+" h"
+                       p(class="data")= val.end_time
+                     div(class="field")
+                       p(class="name")= "Cena"
+                       div(class="class") 
+                        img(class="ticket" src="/pic/ticket.png")
+                        p(class="price")= "Ekonomiczny"
+                        p(class="price")= val.price + " zł"
+                        p(class="price")= "Miejsca: "+val.economySits 
+                        if val.economySits===0
+                          p(class="price" style="color:red; text-decoration: none;")="Brak miejsc"   
+                        else 
+                          input(type="button"   onclick="result("+"{back:"+JSON.stringify(val)+",bilet:'Ekonomiczna',lot:"+JSON.stringify(loty)+"})" class="buy" value="Rezerwuj")
+                       div(class="class") 
+                        img(class="ticket" src="/pic/ticket.png")
+                        p(class="price")= "Premium"
+                        p(class="price")= val.premium + " zł"
+                        p(class="price")= "Miejsca: "+val.premiumSits 
+                        if val.premiumSits===0
+                          p(class="price" style="color:red; text-decoration: none;")="Brak miejsc"   
+                        else 
+                          input(type="button" onclick="result("+"{back:"+JSON.stringify(val)+",bilet:'Premium',lot:"+JSON.stringify(loty)+"})" class="buy" value="Rezerwuj")
+                        
+                       div(class="class") 
+                        img(class="ticket" src="/pic/ticket.png")
+                        p(class="price")= "Biznes"
+                        p(class="price")= val.business + " zł"
+                        p(class="price")= "Miejsca: "+val.businessSits 
+                        if val.businessSits===0
+                           p(class="price" style="color:red; text-decoration: none;")="Brak miejsc"   
+                        else 
+                          input(type="button" onclick="result("+"{back:"+JSON.stringify(val)+",bilet:'Bisnes',lot:"+JSON.stringify(loty)+"})" class="buy" value="Rezerwuj")   
+                        
+                            
+                    
+                       
+                  
+              
+               
+               
+                        
+                      
+                     
+               
+                        

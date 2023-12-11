@@ -1,0 +1,99 @@
+extends layout 
+block content
+  header 
+ 
+   
+  main
+    
+   
+    div(id="container")
+            - let x = 0
+            - let counter =  (parseInt(bilety.adult)+ parseInt(bilety.teen))
+            div(class="divTime") 
+              h1(class="promocja")="Promocja"
+              h2(class="promocja")="Loty do wybranych miast przecenione do -30%"
+              p(id="time")
+            div()  
+              div(id="info" style="display:flex;" )
+                div(style=" min-width:100%;")
+                  h1="Podsumowanie"
+                  div(class="selectedTicket")
+                    p(class="name")= "Wybrana relacja:"
+                    p(class="data" style="width:50%")= loty.start_source+" - "+loty.target
+                  div(class="selectedTicket" style="" )
+                    p(class="name")= "Data wylotu:"
+                    p(class="data" style="width:50%")= loty.data+ " Godz. "+loty.start_time
+                  
+                  div(class="selectedTicket" )
+                    p(class="name")= "Miejsca"
+                    div(style="")
+                      - while (x < counter)
+                        - x++;
+                        p(class="data" style=" width:400px" )= "Miejsce numer: "+(++loty.sit)        
+                      
+                  div(class="selectedTicket")
+                    p(class="name")= "Gate"
+                    p(class="data" style="width:50%")= loty.Gate
+                  div(class="selectedTicket")
+                    p(class="name")= "Klasa"
+                    p(class="data" style="width:50%")= backBilet
+                  
+                  
+                  div(class="selectedTicket")
+                    p(class="name")= "Bilety dla dorosłych:"
+                    p(class="data" style="width:50%")= bilety.adult
+                  
+                
+                  div(class="selectedTicket")
+                    p(class="name")= "Bilety dla młodzieży:"
+                    p(class="data" style="width:50%")= bilety.teen
+                  
+          
+                  div(class="selectedTicket")
+                    p(class="name")= "Bilety dla niemowląt:"
+                    p(class="data" style="width:50%")= bilety.baby
+                  
+                  
+                  div(class="selectedTicket")
+                    p(class="name")= "Cena biletów w jedną strone "
+                    p(class="data" style="width:50%")=bilety.sum.toFixed(2) +" zł"
+                    
+                  if back===0
+                    div(style=" height:300px; display: grid;  grid-template-columns:auto atuo;" )
+                      img(src="/pic/paypal.png " style="min-width:200px; " )
+                      input(type="button" class="buy"  onclick="pay("+bilety.sum.toFixed(2) +")" value="Zapłać "+(bilety.sum.toFixed(2))+"zł")  
+                  
+                  if back!==0
+                    div(id="info")
+                      h1="Powrót"
+                      div(class="selectedTicket")
+                        p(class="name")= "Wybrana relacja:"
+                        p(class="data")= back.start_source+" - "+back.target
+                     
+                      
+                      div(class="selectedTicket")
+                        p(class="name")= "Gate"
+                        p(class="data" style="width:50%")= back.Gate
+                      div(class="selectedTicket")
+                        p(class="name")= "Klasa: "
+                        p(class="data")= bilet
+                      div(class="selectedTicket")
+                        p(class="name")= "Cena biletu powrotnego "
+                        -var backprice=bilety.sum-(bilety.sum*0.20);
+                        p(class="data")= backprice.toFixed(2) + "zł"
+                      -var sum=parseFloat(backprice)+parseFloat(bilety.sum)
+                      div(style=" height:300px; display: grid;  grid-template-columns:auto atuo;" )
+                        img(src="/pic/paypal.png " style="min-width:200px; " )
+                        input(type="button" class="buy" onclick="pay("+sum+")" value="Zapłać "+(sum.toFixed(2))+"zł")  
+                   
+                   
+                
+                             
+
+              
+                
+
+
+             
+           
+                        

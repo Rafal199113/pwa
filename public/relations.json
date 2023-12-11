@@ -1,0 +1,103 @@
+
+ [
+    {
+      "from": "Warszawa",
+      "to": "Londyn",
+      "distance":1450
+     
+     
+    },
+    {
+      "from": "Warszawa",
+      "to": "Nowy Jork",
+      "distance":13000
+
+      
+    },
+    {
+      "from": "Warszawa",
+      "to": "Paryż",
+      "distance":2443
+    },
+    {
+      "from": "Warszawa",
+      "to": "Berlin",
+      "distance":910
+    },
+    {
+      "from": "Warszawa",
+      "to": "Tokio",
+      "distance":17249
+    },
+    {
+      "from": "Warszawa",
+      "to": "Los Angeles",
+      "distance":18621
+    },
+    {
+      "from": "Warszawa",
+      "to": "Rzym",
+      "distance":2892
+    },
+    {
+      "from": "Warszawa",
+      "to": "Madryt",
+      "distance":2289
+    },
+    {
+      "from": "Warszawa",
+      "to": "Dubaj",
+      "distance":4163
+    },
+    {
+      "from": "Warszawa",
+      "to": "Sztokholm",
+      "distance":810
+    },
+    {
+      "from": "Warszawa",
+      "to": "Amsterdam",
+      "distance":1093
+    },
+    {
+      "from": "Warszawa",
+      "to": "Moskwa",
+      "distance":1150
+    },
+    {
+      "from": "Warszawa",
+      "to": "Barcelona",
+      "distance":1863
+    },
+    {
+      "from": "Warszawa",
+      "to": "Lizbona",
+      "distance":2759
+    },
+    {
+      "from": "Warszawa",
+      "to": "Ateny",
+      "distance":1598
+    },
+    {
+      "from": "Warszawa",
+      "to": "Bangkok",
+      "distance":8085
+    },
+    {
+      "from": "Warszawa",
+      "to": "Rio de Janeiro",
+      "distance":10404
+    },
+    {
+      "from": "Warszawa",
+      "to": "Toronto",
+      "distance":6918
+    },
+    {
+      "from": "Warszawa",
+      "to": "Praga",
+      "distance":517
+    }
+  ]
+  

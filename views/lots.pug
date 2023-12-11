@@ -1,0 +1,96 @@
+extends layout 
+block content
+  header 
+ 
+
+    main
+    div(id="container")
+        
+         
+          div(id="flightes" style="display:flex; ")
+           
+         
+
+          each val in loty
+            
+            if val.id===2
+              div(class="divTime") 
+                h1(class="promocja")="Promocja"
+                h2(class="promocja")="Loty do wybranych miast przecenione do -30%"
+                p(id="time")
+            div(id="flightes")
+              
+               
+              div(class="wylot")
+                img(src="/pic/start.png")
+                p(class="selectedDate")="Wylot "+val.data+" "+linie
+              div(class="oneFly")
+              
+                div(class="field")
+                  p(class="name")= "Relacja"
+                  
+                  p(class="data")= val.start_source
+                  img(src="/pic/fly_track.png" class="flyTrack")
+                  p(class="data")= val.target
+                div(class="field")
+                  p(class="name")= "Godziny"
+                  p(class="data")= val.start_time
+                  
+                  p(class="data")= val.fly_time+" h"
+                    
+                  p(class="data")= val.end_time
+               
+                
+                div(class="field")
+                  p(class="name")= "Cena"
+                  div(class="class") 
+                   
+                    img(class="ticket" src="/pic/ticket.png")
+                    if val.isProm==true   
+                      p(class="rabat")="-15%"
+                    p(class="price")= "Ekonomiczny"
+                    p(class="price")= val.price + " zł"
+                    p(class="price")= "Miejsca: "+val.economySits 
+                    if val.economySits===0
+                      p(class="price" style="color:red; text-decoration:none;")="Brak miejsc"   
+                    else if (parseInt(adult)+parseInt(teen))>parseInt(val.economySits)
+                      p(class="price" style="color:red; text-decoration:none;")="Za mało miejsc" 
+                    else
+                      input(type="button" onclick="check("+"{lot:"+JSON.stringify(val)+",bilet:'Ekonomiczna'})"  class="buy" value="Rezerwuj")
+                  div(class="class") 
+                    img(class="ticket" src="/pic/ticket.png")
+                    if val.isProm==true   
+                      p(class="rabat")="-15%"
+                    p(class="price")= "Premium"
+                    p(class="price")= val.premium + " zł"
+                    p(class="price")= "Miejsca: "+val.premiumSits 
+                    if val.premiumSits===0
+                      p(class="price" style="color:red; text-decoration:none;")="Brak miejsc"   
+                    else if (parseInt(adult)+parseInt(teen))>parseInt(val.premiumSits)
+                      p(class="price" style="color:red; text-decoration:none;")="Za mało miejsc" 
+                    else
+                      input(type="button", onclick="check("+"{lot:"+JSON.stringify(val)+",bilet:'Premium'})" class="buy" value="Rezerwuj")
+                  div(class="class") 
+                    
+                    img(class="ticket" src="/pic/ticket.png")
+                    if val.isProm==true   
+                      p(class="rabat")="-15%"
+                    p(class="price")= "Biznes"
+                    p(class="price")= val.business + " zł"
+                    p(class="price")= "Miejsca: "+val.businessSits 
+                    if val.businessSits===0
+                      p(class="price" style="color:red; text-decoration:none;")="Brak miejsc"   
+                    else if (parseInt(adult)+parseInt(teen))>parseInt(val.businessSits)
+                      p(class="price" style="color:red; text-decoration:none;")="Za mało miejsc" 
+                    else
+                      input(type="button", onclick="check("+"{lot:"+JSON.stringify(val)+",bilet:'Biznes'})" class="buy" value="Rezerwuj")
+              
+                  
+              
+               
+               
+                        
+                      
+                     
+               
+                

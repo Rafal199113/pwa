@@ -1,0 +1,84 @@
+doctype html 
+html(lang="en") 
+  head 
+    
+   
+    style
+             include ../public/css/styles.css
+             include ../public/css/sidebar.css
+             include ../public/css/about.css
+             
+    
+         
+        
+             
+    title= 'SqyQuest' 
+ 
+  body 
+    div(id="menu")
+      
+      p(class="barcontent"  id="title")="SkyQuest"
+      ion-icon( id="menuicon" onclick="openNav()" src="/pic/menu.svg")
+      
+    div(id="mySidenav" class="sidenav")
+      a(href="javascript:void(0)" class="closebtn" onclick="closeNav()")="X"
+      
+        
+      a(style="margin-bottom:10%; font-size:80px; margin-left:5%; ")="SkyQuest"
+      div(style="display:flex;")
+        img(src="/pic/help.svg" style="width:60px; margin-left:10px")
+        a(href="/help")="Help"
+      div(style="display:flex;")
+        img(src="/pic/house.svg" style="width:60px ; margin-left:10px")
+        a(href="/info")="About"
+      
+
+    div(id="search" style="margin-bottom:5%")
+      input(type="date" id="datepicker"  name="start" value="2024-07-22")
+      input(type="date" id="returndatepicker"  name="return" value="2024-07-22")
+      select( id="air"  class="select")
+        option(value="option") #{"Lot"} 
+        option(value="option") #{"Ryainar"} 
+        option(value="option") #{"Lufthansa"} 
+      select( id="from"  class="select")
+        option(value="option" class="options") #{relation[0].from} 
+          
+      select( id="to" class="select"  )
+        each val in relation
+          option(value="option" class="options") #{val.to} 
+      
+    div(style="width:20%;  margin-left:auto; margin-right:auto; display:flex;")
+     
+      input(type="button" onclick="showPassengers()" style=" max-width:120px; margin-bottom:20px; margin-left:10%; border-width:1px;  border-radius: 10px; border-style:solid; padding:10px; background-color:transparent;font-size: 20px; "  value="1 pasażer" )
+      div(style="width:400px; height:0px; margin-top:40px;  position: absolute;" id="passengers")
+        div(id="form" style="visibility: hidden;  border-width:1px;  border-radius: 10px; border-style:solid;")
+          div( class="passengerField"  )
+            span(class="passengerTitle")="Dorośli "
+              
+            input(type="button"  class="addbutton" value="-")
+            input(type="number" id="adult"  class="editButtonPassengers" value=adult)
+            input(type="button" class="addbutton" value="+")
+          div(class="passengerField"  id="form")
+            span(class="passengerTitle")="Dzieci"
+            input(type="button" class="addbutton" value="-")
+            input(type="number" id="teen"  class="editButtonPassengers"  value=teen)
+            input(type="button"  class="addbutton" value="+")
+          div(class="passengerField" id="form")
+            span(class="passengerTitle")="Neimowlęta"
+            input(type="button" class="addbutton" value="-")
+            input(type="number" id="baby"   class="editButtonPassengers"  value=0)
+            input(type="button"   class="addbutton" value="+")
+          input(type="button" class="buy" value="Potwierdź" onClick="showPassengers()" style=" margin-left:30%; margin-bottom:10px; margin-right:auto; ")
+      input(type="button"  style="margin-left:30px; height:43px;"   class="buy  " id="find" value="Wyszukaj")
+    
+    div(class="slider")
+      img(id="slides")
+      p(class="slideText")="Wyszukuj spośród najpopularniejszych lini lotniczych połączenia w najniższych cenach."
+    
+    block content
+    script(src='/js/harmonogram.js')
+    script(src="/js/slider.js")
+    script(src="/js/sidebar.js")
+    
+    script(type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js")
+    script(nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js")
